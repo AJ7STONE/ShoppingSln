@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shopping.MainPage"
+             Title="Shopping">
+
+    <StackLayout>
+        <ListView x:Name="shoppingListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!-- Define your item template here -->
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Price}" />
+                            <Button Text="Add to Cart" Clicked="AddToCart_Clicked" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView x:Name="cartListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!-- Define your item template here -->
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Price}" />
+                            <Button Text="Remove" Clicked="RemoveItem_Clicked" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout>
+            <Entry Placeholder="Name" Text="{Binding UserName}" />
+            <Entry Placeholder="Email" Text="{Binding UserEmail}" />
+            <Entry Placeholder="Address" Text="{Binding UserAddress}" />
+            <!-- Add more input fields or controls as needed -->
+            <Button Text="Save" Clicked="Save_Clicked" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
